@@ -16,5 +16,20 @@ namespace Aromatiy
         {
             InitializeComponent();
         }
+
+        private void orderBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.orderBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.tradeDataSet);
+
+        }
+
+        private void ProsmotrTovarov_Load(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "tradeDataSet.Order". При необходимости она может быть перемещена или удалена.
+            this.orderTableAdapter.Fill(this.trade//DataSet.Order);
+
+        }
     }
 }
