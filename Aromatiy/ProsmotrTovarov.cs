@@ -35,6 +35,7 @@ namespace Aromatiy
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tovarDataSet.PickupPoint". При необходимости она может быть перемещена или удалена.
             this.pickupPointTableAdapter.Fill(this.tovarDataSet.PickupPoint);
             panel5.Visible = false;
+    
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tovarDataSet.Product". При необходимости она может быть перемещена или удалена.
             this.productTableAdapter.Fill(this.tovarDataSet.Product);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tovarDataSet.Order". При необходимости она может быть перемещена или удалена.
@@ -49,6 +50,7 @@ namespace Aromatiy
             }
 
             label1.Text = "День заказа "+DateTime.Now.ToShortDateString();
+            UpdateDataInfoLabel();
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)
@@ -260,8 +262,79 @@ namespace Aromatiy
                 MessageBox.Show("Корзина пуста. Нет товаров для формирования заказа.", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-    
 
+        private void searchTb_TextChanged(object sender, EventArgs e)
+        {
+            string searchKeyword = searchTb.Text.Trim();
+            if (!string.IsNullOrEmpty(searchKeyword))
+            {
+                productBindingSource.Filter = string.Format("ProductName LIKE '%{0}%'", searchKeyword);
+                UpdateDataInfoLabel();
+            }
+            else
+            {
+                productBindingSource.RemoveFilter();
+                UpdateDataInfoLabel();
+            }
+        }
+
+        private void UpdateDataInfoLabel()
+        {
+            int totalRecords = productBindingSource.Count;
+            int displayedRecords = productDataGridView.RowCount;
+            dataInfoLabel.Text = $"{displayedRecords} из {totalRecords}";
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedRange = discountComboBox.SelectedItem.ToString();
+
+            // Определите диапазон скидки на основе выбранного элемента ComboBox
+            string filter = "";
+            switch (selectedRange)
+            {
+                case "Все диапазоны":
+                    productBindingSource.RemoveFilter(); // Сбросить фильтр
+                    UpdateDataInfoLabel();
+                    break;
+                case "0-9,99%":
+                    filter = "ProductMaxDiscountAmount >= 0 AND ProductMaxDiscountAmount <= 9.99";
+                    UpdateDataInfoLabel();
+                    break;
+                case "10-14,99%":
+                    filter = "ProductMaxDiscountAmount >= 10 AND ProductMaxDiscountAmount <= 14.99";
+                    UpdateDataInfoLabel();
+                    break;
+                case "15% и более":
+                    filter = "ProductMaxDiscountAmount >= 15";
+                    UpdateDataInfoLabel();
+                    break;
+            }
+            if (!string.IsNullOrEmpty(filter))
+            {
+                productBindingSource.Filter = filter;
+                UpdateDataInfoLabel();
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            string sortOrder = comboBox2.SelectedItem.ToString();
+            if (sortOrder == "По возрастанию")
+            {
+                productDataGridView.Sort(productDataGridView.Columns["ProductCost"], ListSortDirection.Ascending);
+             
+            }
+            else if (sortOrder == "По убыванию")
+            {
+                productDataGridView.Sort(productDataGridView.Columns["ProductCost"], ListSortDirection.Descending);
+
+            }
+            else if (sortOrder == "Все цены")
+            {
+                productBindingSource.RemoveFilter();
+            }
+        }
     }
 }
 

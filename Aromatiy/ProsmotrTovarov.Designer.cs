@@ -84,6 +84,16 @@
             this.ProductDiscountAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductQuantityInStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.searchTb = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.discountComboBox = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.dataInfoLabel = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -100,17 +110,24 @@
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pickupPointBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tovarDataSetBindingSource)).BeginInit();
+            this.panel11.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pickupPointBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pickupPointBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pickupPointBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tovarDataSet1)).BeginInit();
+            this.panel15.SuspendLayout();
+            this.panel16.SuspendLayout();
+            this.panel17.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel2.Controls.Add(this.panel17);
+            this.panel2.Controls.Add(this.panel16);
+            this.panel2.Controls.Add(this.panel15);
             this.panel2.Controls.Add(this.panel10);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.panel4);
@@ -125,9 +142,9 @@
             this.panel10.Controls.Add(this.CountBucketLbl);
             this.panel10.Controls.Add(this.pictureBox1);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel10.Location = new System.Drawing.Point(670, 0);
+            this.panel10.Location = new System.Drawing.Point(649, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(79, 47);
+            this.panel10.Size = new System.Drawing.Size(100, 47);
             this.panel10.TabIndex = 3;
             this.panel10.Click += new System.EventHandler(this.panel10_Click);
             // 
@@ -203,7 +220,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel7.Location = new System.Drawing.Point(0, 397);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(436, 17);
+            this.panel7.Size = new System.Drawing.Size(486, 17);
             this.panel7.TabIndex = 2;
             // 
             // productDataGridView
@@ -241,7 +258,7 @@
             this.productDataGridView.ReadOnly = true;
             this.productDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.productDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.productDataGridView.Size = new System.Drawing.Size(436, 397);
+            this.productDataGridView.Size = new System.Drawing.Size(486, 397);
             this.productDataGridView.TabIndex = 0;
             // 
             // productBindingSource
@@ -262,17 +279,18 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 47);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.MaximumSize = new System.Drawing.Size(1000, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(436, 414);
+            this.panel1.Size = new System.Drawing.Size(486, 414);
             this.panel1.TabIndex = 0;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.BucketDgv);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(670, 47);
+            this.panel3.Location = new System.Drawing.Point(649, 47);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(341, 414);
+            this.panel3.Size = new System.Drawing.Size(362, 414);
             this.panel3.TabIndex = 2;
             this.panel3.Visible = false;
             // 
@@ -295,7 +313,7 @@
             this.BucketDgv.MultiSelect = false;
             this.BucketDgv.Name = "BucketDgv";
             this.BucketDgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.BucketDgv.Size = new System.Drawing.Size(341, 414);
+            this.BucketDgv.Size = new System.Drawing.Size(362, 414);
             this.BucketDgv.TabIndex = 0;
             // 
             // IdColumn
@@ -329,9 +347,9 @@
             this.panel6.Controls.Add(this.panel9);
             this.panel6.Controls.Add(this.panel8);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(436, 47);
+            this.panel6.Location = new System.Drawing.Point(486, 47);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(234, 414);
+            this.panel6.Size = new System.Drawing.Size(163, 414);
             this.panel6.TabIndex = 3;
             // 
             // panel12
@@ -341,7 +359,7 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(0, 192);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(234, 141);
+            this.panel12.Size = new System.Drawing.Size(163, 141);
             this.panel12.TabIndex = 6;
             // 
             // panel13
@@ -351,7 +369,7 @@
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel13.Location = new System.Drawing.Point(0, 0);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(234, 58);
+            this.panel13.Size = new System.Drawing.Size(163, 58);
             this.panel13.TabIndex = 0;
             this.panel13.Visible = false;
             // 
@@ -359,10 +377,11 @@
             // 
             this.comboBox1.DataSource = this.pickupPointBindingSource3;
             this.comboBox1.DisplayMember = "StreetCity";
+            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(68, 34);
+            this.comboBox1.Location = new System.Drawing.Point(0, 37);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(163, 21);
             this.comboBox1.TabIndex = 1;
             this.comboBox1.ValueMember = "PickupPointID";
             // 
@@ -392,7 +411,7 @@
             this.DeleteBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.DeleteBtn.Location = new System.Drawing.Point(0, 128);
             this.DeleteBtn.Name = "DeleteBtn";
-            this.DeleteBtn.Size = new System.Drawing.Size(234, 64);
+            this.DeleteBtn.Size = new System.Drawing.Size(163, 64);
             this.DeleteBtn.TabIndex = 5;
             this.DeleteBtn.Text = "Удалить с корзины";
             this.DeleteBtn.UseVisualStyleBackColor = true;
@@ -401,10 +420,11 @@
             // 
             // panel11
             // 
+            this.panel11.Controls.Add(this.dataInfoLabel);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(0, 88);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(234, 40);
+            this.panel11.Size = new System.Drawing.Size(163, 40);
             this.panel11.TabIndex = 4;
             // 
             // AddBtn
@@ -412,7 +432,7 @@
             this.AddBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.AddBtn.Location = new System.Drawing.Point(0, 24);
             this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(234, 64);
+            this.AddBtn.Size = new System.Drawing.Size(163, 64);
             this.AddBtn.TabIndex = 3;
             this.AddBtn.Text = "Добавить в корзину";
             this.AddBtn.UseVisualStyleBackColor = true;
@@ -423,7 +443,7 @@
             this.CreateOrderBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.CreateOrderBtn.Location = new System.Drawing.Point(0, 333);
             this.CreateOrderBtn.Name = "CreateOrderBtn";
-            this.CreateOrderBtn.Size = new System.Drawing.Size(234, 64);
+            this.CreateOrderBtn.Size = new System.Drawing.Size(163, 64);
             this.CreateOrderBtn.TabIndex = 2;
             this.CreateOrderBtn.Text = "Оформить заказ";
             this.CreateOrderBtn.UseVisualStyleBackColor = true;
@@ -435,7 +455,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(234, 24);
+            this.panel9.Size = new System.Drawing.Size(163, 24);
             this.panel9.TabIndex = 1;
             // 
             // label1
@@ -455,7 +475,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel8.Location = new System.Drawing.Point(0, 397);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(234, 17);
+            this.panel8.Size = new System.Drawing.Size(163, 17);
             this.panel8.TabIndex = 0;
             // 
             // pickupPointBindingSource
@@ -510,7 +530,7 @@
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel14.Location = new System.Drawing.Point(0, 58);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(234, 83);
+            this.panel14.Size = new System.Drawing.Size(163, 83);
             this.panel14.TabIndex = 1;
             // 
             // ProductID
@@ -603,6 +623,111 @@
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
             // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.label3);
+            this.panel15.Controls.Add(this.searchTb);
+            this.panel15.Cursor = System.Windows.Forms.Cursors.No;
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel15.Location = new System.Drawing.Point(0, 0);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(204, 47);
+            this.panel15.TabIndex = 4;
+            // 
+            // searchTb
+            // 
+            this.searchTb.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.searchTb.Location = new System.Drawing.Point(0, 27);
+            this.searchTb.Name = "searchTb";
+            this.searchTb.Size = new System.Drawing.Size(204, 20);
+            this.searchTb.TabIndex = 0;
+            this.searchTb.TextChanged += new System.EventHandler(this.searchTb_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(70, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Поиск товара";
+            // 
+            // panel16
+            // 
+            this.panel16.Controls.Add(this.label4);
+            this.panel16.Controls.Add(this.discountComboBox);
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel16.Location = new System.Drawing.Point(204, 0);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(147, 47);
+            this.panel16.TabIndex = 5;
+            // 
+            // discountComboBox
+            // 
+            this.discountComboBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.discountComboBox.FormattingEnabled = true;
+            this.discountComboBox.Items.AddRange(new object[] {
+            "Все диапазоны",
+            "0-9,99%",
+            "10-14,99%",
+            "15% и более"});
+            this.discountComboBox.Location = new System.Drawing.Point(0, 26);
+            this.discountComboBox.Name = "discountComboBox";
+            this.discountComboBox.Size = new System.Drawing.Size(147, 21);
+            this.discountComboBox.TabIndex = 0;
+            this.discountComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(2, 10);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(117, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Фильтры по скидкам";
+            // 
+            // panel17
+            // 
+            this.panel17.Controls.Add(this.label5);
+            this.panel17.Controls.Add(this.comboBox2);
+            this.panel17.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel17.Location = new System.Drawing.Point(351, 0);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(134, 47);
+            this.panel17.TabIndex = 6;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(97, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Фильтры по цене";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Все цены",
+            "По возрастанию",
+            "По убыванию"});
+            this.comboBox2.Location = new System.Drawing.Point(0, 26);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(134, 21);
+            this.comboBox2.TabIndex = 0;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged_1);
+            // 
+            // dataInfoLabel
+            // 
+            this.dataInfoLabel.AutoSize = true;
+            this.dataInfoLabel.Location = new System.Drawing.Point(6, 3);
+            this.dataInfoLabel.Name = "dataInfoLabel";
+            this.dataInfoLabel.Size = new System.Drawing.Size(35, 13);
+            this.dataInfoLabel.TabIndex = 0;
+            this.dataInfoLabel.Text = "label6";
+            // 
             // ProsmotrTovarov
             // 
             this.ClientSize = new System.Drawing.Size(1011, 461);
@@ -634,6 +759,8 @@
             this.panel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pickupPointBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tovarDataSetBindingSource)).EndInit();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pickupPointBindingSource)).EndInit();
@@ -641,6 +768,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pickupPointBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tovarDataSet1)).EndInit();
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
+            this.panel17.ResumeLayout(false);
+            this.panel17.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -725,5 +858,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductDiscountAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductQuantityInStock;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox searchTb;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox discountComboBox;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label dataInfoLabel;
     }
 }
