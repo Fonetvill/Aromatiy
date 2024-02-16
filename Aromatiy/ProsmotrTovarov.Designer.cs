@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tovarDataSet = new Aromatiy.TovarDataSet();
-            this.orderBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.CountBucketLbl = new System.Windows.Forms.Label();
@@ -40,27 +37,41 @@
             this.FIOLable = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.ExitLbl = new System.Windows.Forms.Label();
-            this.orderTableAdapter1 = new Aromatiy.TovarDataSetTableAdapters.OrderTableAdapter();
-            this.tableAdapterManager1 = new Aromatiy.TovarDataSetTableAdapters.TableAdapterManager();
-            this.productTableAdapter = new Aromatiy.TovarDataSetTableAdapters.ProductTableAdapter();
-            this.tovarDataSet1 = new Aromatiy.TovarDataSet();
             this.panel7 = new System.Windows.Forms.Panel();
             this.productDataGridView = new System.Windows.Forms.DataGridView();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tovarDataSet = new Aromatiy.TovarDataSet();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.BucketDgv = new System.Windows.Forms.DataGridView();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.AddBtn = new System.Windows.Forms.Button();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.panel12 = new System.Windows.Forms.Panel();
             this.IdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameColm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SaleColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.pickupPointBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.tovarDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.DeleteBtn = new System.Windows.Forms.Button();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.AddBtn = new System.Windows.Forms.Button();
+            this.CreateOrderBtn = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.pickupPointBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pickupPointBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.pickupPointBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.orderBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.orderTableAdapter1 = new Aromatiy.TovarDataSetTableAdapters.OrderTableAdapter();
+            this.tableAdapterManager1 = new Aromatiy.TovarDataSetTableAdapters.TableAdapterManager();
+            this.productTableAdapter = new Aromatiy.TovarDataSetTableAdapters.ProductTableAdapter();
+            this.tovarDataSet1 = new Aromatiy.TovarDataSet();
+            this.pickupPointTableAdapter = new Aromatiy.TovarDataSetTableAdapters.PickupPointTableAdapter();
+            this.panel14 = new System.Windows.Forms.Panel();
             this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,36 +84,29 @@
             this.ProductDiscountAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductQuantityInStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tovarDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tovarDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tovarDataSet)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BucketDgv)).BeginInit();
             this.panel6.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pickupPointBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tovarDataSetBindingSource)).BeginInit();
+            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pickupPointBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pickupPointBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pickupPointBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tovarDataSet1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataMember = "Product";
-            this.productBindingSource.DataSource = this.tovarDataSet;
-            // 
-            // tovarDataSet
-            // 
-            this.tovarDataSet.DataSetName = "TovarDataSet";
-            this.tovarDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // orderBindingSource1
-            // 
-            this.orderBindingSource1.DataMember = "Order";
-            this.orderBindingSource1.DataSource = this.tovarDataSet;
             // 
             // panel2
             // 
@@ -193,29 +197,6 @@
             this.ExitLbl.Text = "Выход";
             this.ExitLbl.Click += new System.EventHandler(this.panel4_Click);
             // 
-            // orderTableAdapter1
-            // 
-            this.orderTableAdapter1.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager1
-            // 
-            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager1.OrderTableAdapter = this.orderTableAdapter1;
-            this.tableAdapterManager1.PickupPointTableAdapter = null;
-            this.tableAdapterManager1.ProductTableAdapter = null;
-            this.tableAdapterManager1.RoleTableAdapter = null;
-            this.tableAdapterManager1.UpdateOrder = Aromatiy.TovarDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager1.UserTableAdapter = null;
-            // 
-            // productTableAdapter
-            // 
-            this.productTableAdapter.ClearBeforeFill = true;
-            // 
-            // tovarDataSet1
-            // 
-            this.tovarDataSet1.DataSetName = "TovarDataSet";
-            this.tovarDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -263,6 +244,16 @@
             this.productDataGridView.Size = new System.Drawing.Size(436, 397);
             this.productDataGridView.TabIndex = 0;
             // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataMember = "Product";
+            this.productBindingSource.DataSource = this.tovarDataSet;
+            // 
+            // tovarDataSet
+            // 
+            this.tovarDataSet.DataSetName = "TovarDataSet";
+            this.tovarDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
@@ -283,6 +274,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(341, 414);
             this.panel3.TabIndex = 2;
+            this.panel3.Visible = false;
             // 
             // BucketDgv
             // 
@@ -306,85 +298,6 @@
             this.BucketDgv.Size = new System.Drawing.Size(341, 414);
             this.BucketDgv.TabIndex = 0;
             // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.panel12);
-            this.panel6.Controls.Add(this.button3);
-            this.panel6.Controls.Add(this.panel11);
-            this.panel6.Controls.Add(this.AddBtn);
-            this.panel6.Controls.Add(this.button2);
-            this.panel6.Controls.Add(this.panel9);
-            this.panel6.Controls.Add(this.panel8);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(436, 47);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(234, 414);
-            this.panel6.TabIndex = 3;
-            // 
-            // panel8
-            // 
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(0, 397);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(234, 17);
-            this.panel8.TabIndex = 0;
-            // 
-            // panel9
-            // 
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(0, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(234, 24);
-            this.panel9.TabIndex = 1;
-            // 
-            // button2
-            // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button2.Location = new System.Drawing.Point(0, 333);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(234, 64);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Оформить заказ";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // AddBtn
-            // 
-            this.AddBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.AddBtn.Location = new System.Drawing.Point(0, 24);
-            this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(234, 64);
-            this.AddBtn.TabIndex = 3;
-            this.AddBtn.Text = "Добавить в корзину";
-            this.AddBtn.UseVisualStyleBackColor = true;
-            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
-            // 
-            // panel11
-            // 
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel11.Location = new System.Drawing.Point(0, 88);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(234, 85);
-            this.panel11.TabIndex = 4;
-            // 
-            // button3
-            // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.Location = new System.Drawing.Point(0, 173);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(234, 64);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Удалить с корзины";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Visible = false;
-            // 
-            // panel12
-            // 
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel12.Location = new System.Drawing.Point(0, 236);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(234, 97);
-            this.panel12.TabIndex = 6;
-            // 
             // IdColumn
             // 
             this.IdColumn.HeaderText = "id";
@@ -405,6 +318,200 @@
             // 
             this.CountColumn.HeaderText = "Количество";
             this.CountColumn.Name = "CountColumn";
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.panel12);
+            this.panel6.Controls.Add(this.DeleteBtn);
+            this.panel6.Controls.Add(this.panel11);
+            this.panel6.Controls.Add(this.AddBtn);
+            this.panel6.Controls.Add(this.CreateOrderBtn);
+            this.panel6.Controls.Add(this.panel9);
+            this.panel6.Controls.Add(this.panel8);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(436, 47);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(234, 414);
+            this.panel6.TabIndex = 3;
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.panel14);
+            this.panel12.Controls.Add(this.panel13);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel12.Location = new System.Drawing.Point(0, 192);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(234, 141);
+            this.panel12.TabIndex = 6;
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.comboBox1);
+            this.panel13.Controls.Add(this.label2);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel13.Location = new System.Drawing.Point(0, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(234, 58);
+            this.panel13.TabIndex = 0;
+            this.panel13.Visible = false;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DataSource = this.pickupPointBindingSource3;
+            this.comboBox1.DisplayMember = "StreetCity";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(68, 34);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 1;
+            this.comboBox1.ValueMember = "PickupPointID";
+            // 
+            // pickupPointBindingSource3
+            // 
+            this.pickupPointBindingSource3.DataMember = "PickupPoint";
+            this.pickupPointBindingSource3.DataSource = this.tovarDataSetBindingSource;
+            // 
+            // tovarDataSetBindingSource
+            // 
+            this.tovarDataSetBindingSource.DataSource = this.tovarDataSet;
+            this.tovarDataSetBindingSource.Position = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Padding = new System.Windows.Forms.Padding(20, 5, 0, 0);
+            this.label2.Size = new System.Drawing.Size(157, 18);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Выбериет точку доставки";
+            // 
+            // DeleteBtn
+            // 
+            this.DeleteBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.DeleteBtn.Location = new System.Drawing.Point(0, 128);
+            this.DeleteBtn.Name = "DeleteBtn";
+            this.DeleteBtn.Size = new System.Drawing.Size(234, 64);
+            this.DeleteBtn.TabIndex = 5;
+            this.DeleteBtn.Text = "Удалить с корзины";
+            this.DeleteBtn.UseVisualStyleBackColor = true;
+            this.DeleteBtn.Visible = false;
+            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
+            // 
+            // panel11
+            // 
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel11.Location = new System.Drawing.Point(0, 88);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(234, 40);
+            this.panel11.TabIndex = 4;
+            // 
+            // AddBtn
+            // 
+            this.AddBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.AddBtn.Location = new System.Drawing.Point(0, 24);
+            this.AddBtn.Name = "AddBtn";
+            this.AddBtn.Size = new System.Drawing.Size(234, 64);
+            this.AddBtn.TabIndex = 3;
+            this.AddBtn.Text = "Добавить в корзину";
+            this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
+            // 
+            // CreateOrderBtn
+            // 
+            this.CreateOrderBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.CreateOrderBtn.Location = new System.Drawing.Point(0, 333);
+            this.CreateOrderBtn.Name = "CreateOrderBtn";
+            this.CreateOrderBtn.Size = new System.Drawing.Size(234, 64);
+            this.CreateOrderBtn.TabIndex = 2;
+            this.CreateOrderBtn.Text = "Оформить заказ";
+            this.CreateOrderBtn.UseVisualStyleBackColor = true;
+            this.CreateOrderBtn.Click += new System.EventHandler(this.CreateOrderBtn_Click);
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.label1);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(234, 24);
+            this.panel9.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(40, 5, 0, 0);
+            this.label1.Size = new System.Drawing.Size(75, 18);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
+            // 
+            // panel8
+            // 
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel8.Location = new System.Drawing.Point(0, 397);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(234, 17);
+            this.panel8.TabIndex = 0;
+            // 
+            // pickupPointBindingSource
+            // 
+            this.pickupPointBindingSource.DataMember = "PickupPoint";
+            this.pickupPointBindingSource.DataSource = this.tovarDataSetBindingSource;
+            // 
+            // pickupPointBindingSource1
+            // 
+            this.pickupPointBindingSource1.DataMember = "PickupPoint";
+            this.pickupPointBindingSource1.DataSource = this.tovarDataSetBindingSource;
+            // 
+            // pickupPointBindingSource2
+            // 
+            this.pickupPointBindingSource2.DataMember = "PickupPoint";
+            this.pickupPointBindingSource2.DataSource = this.tovarDataSetBindingSource;
+            // 
+            // orderBindingSource1
+            // 
+            this.orderBindingSource1.DataMember = "Order";
+            this.orderBindingSource1.DataSource = this.tovarDataSet;
+            // 
+            // orderTableAdapter1
+            // 
+            this.orderTableAdapter1.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager1
+            // 
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.OrderTableAdapter = this.orderTableAdapter1;
+            this.tableAdapterManager1.PickupPointTableAdapter = null;
+            this.tableAdapterManager1.ProductTableAdapter = null;
+            this.tableAdapterManager1.RoleTableAdapter = null;
+            this.tableAdapterManager1.UpdateOrder = Aromatiy.TovarDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager1.UserTableAdapter = null;
+            // 
+            // productTableAdapter
+            // 
+            this.productTableAdapter.ClearBeforeFill = true;
+            // 
+            // tovarDataSet1
+            // 
+            this.tovarDataSet1.DataSetName = "TovarDataSet";
+            this.tovarDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pickupPointTableAdapter
+            // 
+            this.pickupPointTableAdapter.ClearBeforeFill = true;
+            // 
+            // panel14
+            // 
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel14.Location = new System.Drawing.Point(0, 58);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(234, 83);
+            this.panel14.TabIndex = 1;
             // 
             // ProductID
             // 
@@ -507,9 +614,6 @@
             this.Name = "ProsmotrTovarov";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProsmotrTovarov_FormClosing);
             this.Load += new System.EventHandler(this.ProsmotrTovarov_Load_1);
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tovarDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
@@ -518,12 +622,25 @@
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tovarDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tovarDataSet)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BucketDgv)).EndInit();
             this.panel6.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pickupPointBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tovarDataSetBindingSource)).EndInit();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pickupPointBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pickupPointBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pickupPointBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tovarDataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -576,15 +693,26 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button DeleteBtn;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Button AddBtn;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button CreateOrderBtn;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameColm;
         private System.Windows.Forms.DataGridViewTextBoxColumn SaleColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CountColumn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.BindingSource tovarDataSetBindingSource;
+        private System.Windows.Forms.BindingSource pickupPointBindingSource;
+        private TovarDataSetTableAdapters.PickupPointTableAdapter pickupPointTableAdapter;
+        private System.Windows.Forms.BindingSource pickupPointBindingSource1;
+        private System.Windows.Forms.BindingSource pickupPointBindingSource2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.BindingSource pickupPointBindingSource3;
+        private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;

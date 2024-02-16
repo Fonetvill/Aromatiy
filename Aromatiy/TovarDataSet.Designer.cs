@@ -838,6 +838,8 @@ namespace Aromatiy {
             
             private global::System.Data.DataColumn columnHouseNumber;
             
+            private global::System.Data.DataColumn columnPickupAdress;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public PickupPointDataTable() {
@@ -913,6 +915,14 @@ namespace Aromatiy {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PickupAdressColumn {
+                get {
+                    return this.columnPickupAdress;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -948,14 +958,15 @@ namespace Aromatiy {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PickupPointRow AddPickupPointRow(int PickupIdPoint, string CityName, string StreetCity, int HouseNumber) {
+            public PickupPointRow AddPickupPointRow(int PickupIdPoint, string CityName, string StreetCity, int HouseNumber, string PickupAdress) {
                 PickupPointRow rowPickupPointRow = ((PickupPointRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         PickupIdPoint,
                         CityName,
                         StreetCity,
-                        HouseNumber};
+                        HouseNumber,
+                        PickupAdress};
                 rowPickupPointRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPickupPointRow);
                 return rowPickupPointRow;
@@ -990,6 +1001,7 @@ namespace Aromatiy {
                 this.columnCityName = base.Columns["CityName"];
                 this.columnStreetCity = base.Columns["StreetCity"];
                 this.columnHouseNumber = base.Columns["HouseNumber"];
+                this.columnPickupAdress = base.Columns["PickupAdress"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1005,6 +1017,8 @@ namespace Aromatiy {
                 base.Columns.Add(this.columnStreetCity);
                 this.columnHouseNumber = new global::System.Data.DataColumn("HouseNumber", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHouseNumber);
+                this.columnPickupAdress = new global::System.Data.DataColumn("PickupAdress", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPickupAdress);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnPickupPointID}, true));
                 this.columnPickupPointID.AutoIncrement = true;
@@ -2446,6 +2460,34 @@ namespace Aromatiy {
                 set {
                     this[this.tablePickupPoint.HouseNumberColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string PickupAdress {
+                get {
+                    try {
+                        return ((string)(this[this.tablePickupPoint.PickupAdressColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'PickupAdress\' в таблице \'PickupPoint\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePickupPoint.PickupAdressColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsPickupAdressNull() {
+                return this.IsNull(this.tablePickupPoint.PickupAdressColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetPickupAdressNull() {
+                this[this.tablePickupPoint.PickupAdressColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

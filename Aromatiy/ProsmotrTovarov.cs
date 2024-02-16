@@ -32,11 +32,14 @@ namespace Aromatiy
 
         private void ProsmotrTovarov_Load_1(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "tovarDataSet.PickupPoint". При необходимости она может быть перемещена или удалена.
+            this.pickupPointTableAdapter.Fill(this.tovarDataSet.PickupPoint);
             panel5.Visible = false;
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tovarDataSet.Product". При необходимости она может быть перемещена или удалена.
             this.productTableAdapter.Fill(this.tovarDataSet.Product);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tovarDataSet.Order". При необходимости она может быть перемещена или удалена.
             this.orderTableAdapter1.Fill(this.tovarDataSet.Order);
+            UpdateDeleteButtonVisibility();
 
             if (  Variables.allName != null)
             {
@@ -44,6 +47,8 @@ namespace Aromatiy
                 FIOLable.Text = Variables.allName;
                 FIOLable.Visible = true;
             }
+
+            label1.Text = "День заказа "+DateTime.Now.ToShortDateString();
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)
@@ -65,8 +70,7 @@ namespace Aromatiy
 
         private void panel10_Click(object sender, EventArgs e)
         {
-            Basket.BasketForm basketForm = new Basket.BasketForm();
-            basketForm.ShowDialog();
+           
         }
 
         private void panel4_Click(object sender, EventArgs e)
@@ -78,44 +82,186 @@ namespace Aromatiy
             login.Show();
         }
 
-   
+        private void UpdateDeleteButtonVisibility()
+        {
+            // Проверяем, есть ли строки в корзине
+            bool hasItemsInBasket = BucketDgv.Rows.Count > 0;
+            // Показываем или скрываем кнопку удаления в зависимости от наличия товаров в корзине
+            DeleteBtn.Visible = hasItemsInBasket;
+            panel3.Visible = hasItemsInBasket;
+            panel13.Visible = hasItemsInBasket;
+        }
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
             if (productDataGridView.SelectedRows.Count > 0)
             {
                 int selectedIndex = productDataGridView.SelectedRows[0].Index;
-
-                // Получите значение ключа, которое необходимо удалить
                 int ProductID = Convert.ToInt32(productDataGridView.Rows[selectedIndex].Cells["ProductID"].Value);
+                int ProductQuantityInStock = Convert.ToInt32(productDataGridView.Rows[selectedIndex].Cells["ProductQuantityInStock"].Value);
 
-                // Показать подтверждающий диалог перед удалением
-                DialogResult result = MessageBox.Show("Вы уверены, что хотите добавить товар в корзину?",
-                    "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
+                // Проверяем, есть ли достаточное количество товара в наличии
+                if (ProductQuantityInStock > 0)
                 {
-                    countBucket++;
-                    CountBucketLbl.Text = countBucket.ToString();
+                    // Показать подтверждающий диалог перед добавлением в корзину
+                    DialogResult result = MessageBox.Show("Вы уверены, что хотите добавить товар в корзину?",
+                        "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                    foreach (DataGridViewRow row in productDataGridView.SelectedRows)
+                    if (result == DialogResult.Yes)
                     {
-                        // Создаем новую строку во втором DataGridView
-                        int rowIndex = BucketDgv.Rows.Add();
+                        bool productFound = false;
+                        foreach (DataGridViewRow row in BucketDgv.Rows)
+                        {
+                            // Проверяем, если товар с таким ID уже в корзине
+                            if (Convert.ToInt32(row.Cells["IdColumn"].Value) == ProductID)
+                            {
+                                // Увеличиваем количество товара в корзине
+                                int newQuantity = Convert.ToInt32(row.Cells["CountColumn"].Value) + 1;
+                                row.Cells["CountColumn"].Value = newQuantity;
+                                productFound = true;
+                                break;
+                            }
+                        }
 
-                        // Копируем данные из определенных колонок
-                        BucketDgv.Rows[rowIndex].Cells[0].Value = row.Cells["ProductID"].Value; // Копируем данные из колонки "Column1"
-                        BucketDgv.Rows[rowIndex].Cells[1].Value = row.Cells["ProductName"].Value; // Копируем данные из колонки "Column2"
-                        BucketDgv.Rows[rowIndex].Cells[2].Value = row.Cells["ProductCost"].Value; // Копируем данные из колонки "Column1"
-                        BucketDgv.Rows[rowIndex].Cells[3].Value = row.Cells["ProductDiscountAmount"].Value; // Копируем данные из колонки "Column2"
+                        // Если товара еще нет в корзине, добавляем его
+                        if (!productFound)
+                        {
+                            // Создаем новую строку во втором DataGridView (корзине)
+                            int rowIndex = BucketDgv.Rows.Add();
+
+                            // Копируем данные из определенных колонок
+                            BucketDgv.Rows[rowIndex].Cells[0].Value = ProductID; 
+                            BucketDgv.Rows[rowIndex].Cells[1].Value = productDataGridView.Rows[selectedIndex].Cells["ProductName"].Value; 
+                            BucketDgv.Rows[rowIndex].Cells[2].Value = productDataGridView.Rows[selectedIndex].Cells["ProductCost"].Value; 
+                            BucketDgv.Rows[rowIndex].Cells[3].Value = 1; // Количество в корзине
+                        }
+
+
+                        ProductQuantityInStock--;
+                        productDataGridView.Rows[selectedIndex].Cells["ProductQuantityInStock"].Value = ProductQuantityInStock;
+
+                        // Обновляем отображение количества товара в корзине
+                        countBucket++;
+                        CountBucketLbl.Text = countBucket.ToString();
+                        UpdateDeleteButtonVisibility();
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Товара нет в наличии");
                 }
             }
             else
             {
-                MessageBox.Show("Выберите строку .");
-
+                MessageBox.Show("Выберите строку");
             }
         }
+
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            if (BucketDgv.SelectedRows.Count > 0)
+            {
+                int selectedIndex = BucketDgv.SelectedRows[0].Index;
+
+                // Получаем значение ProductID, которое нужно вернуть в таблицу товаров
+                int ProductID = Convert.ToInt32(BucketDgv.Rows[selectedIndex].Cells["IdColumn"].Value);
+                int ProductQuantityInBasket = Convert.ToInt32(BucketDgv.Rows[selectedIndex].Cells["CountColumn"].Value);
+
+                // Удаляем выбранную строку из корзины
+                BucketDgv.Rows.RemoveAt(selectedIndex);
+
+                // Увеличиваем количество товара в наличии в таблице товаров
+                foreach (DataGridViewRow row in productDataGridView.Rows)
+                {
+                    // Находим товар с нужным ID
+                    if (Convert.ToInt32(row.Cells["ProductID"].Value) == ProductID)
+                    {
+                        // Увеличиваем количество товара в наличии на количество из корзины
+                        int ProductQuantityInStock = Convert.ToInt32(row.Cells["ProductQuantityInStock"].Value);
+                        ProductQuantityInStock += ProductQuantityInBasket;
+                        row.Cells["ProductQuantityInStock"].Value = ProductQuantityInStock;
+                        break; // Выходим из цикла, после того как нашли товар
+                    }
+                }
+
+                // Обновляем отображение количества товара в корзине
+                countBucket -= ProductQuantityInBasket;
+                CountBucketLbl.Text = countBucket.ToString();
+                UpdateDeleteButtonVisibility();
+            }
+            else
+            {
+                MessageBox.Show("Выберите строку для удаления");
+            }
+        }
+
+        private int GenerateOrderGetCode()
+        {
+            Random random = new Random();
+            return random.Next(300, 9999); 
+        }
+
+        private void CreateOrderBtn_Click(object sender, EventArgs e)
+        {
+            // Проверяем, есть ли товары в корзине
+            if (BucketDgv.Rows.Count > 0)
+            {
+                // Устанавливаем статус заказа
+                string orderStatus = "Новый";
+
+                // Создаем новый заказ
+                using (SqlConnection connection = new SqlConnection(Connection.con))
+                {
+                    connection.Open();
+
+                    foreach (DataGridViewRow row in BucketDgv.Rows)
+                    {
+                        int productID = Convert.ToInt32(row.Cells["IdColumn"].Value);
+                        int quantity = Convert.ToInt32(row.Cells["CountColumn"].Value);
+                        DateTime orderCreateDate = DateTime.Today;
+                        DateTime orderDeliveryDate = DateTime.Today.AddDays(5); // Примерно через 7 дней
+                        int pickupPointId = comboBox1.SelectedIndex+1; // Здесь должно быть ваше значение для пункта выдачи заказов
+                        int orderGetCode = GenerateOrderGetCode(); // Генерируем уникальный код получения заказа
+
+                        // Формируем запрос для вставки заказа
+                        string insertOrderQuery = @"INSERT INTO [Order] (OrderStatus, ProductArticleId, OrderCount, OrderCreateDate, OrderDeliveryDate, IdPickupPoint, OrderGetCode) 
+                                            VALUES (@OrderStatus, @ProductArticleId, @OrderCount, @OrderCreateDate, @OrderDeliveryDate, @IdPickupPoint, @OrderGetCode);";
+
+                        // Создаем команду для вставки заказа
+                        using (SqlCommand command = new SqlCommand(insertOrderQuery, connection))
+                        {
+                            // Параметры запроса
+                            command.Parameters.AddWithValue("@OrderStatus", orderStatus);
+                            command.Parameters.AddWithValue("@ProductArticleId", productID);
+                            command.Parameters.AddWithValue("@OrderCount", quantity);
+                            command.Parameters.AddWithValue("@OrderCreateDate", orderCreateDate);
+                            command.Parameters.AddWithValue("@OrderDeliveryDate", orderDeliveryDate);
+                            command.Parameters.AddWithValue("@IdPickupPoint", pickupPointId);
+                            command.Parameters.AddWithValue("@OrderGetCode", orderGetCode);
+
+                            // Выполняем запрос
+                            command.ExecuteNonQuery();
+                        }
+                    }
+                }
+
+                // Очищаем корзину после создания заказа
+                UpdateDeleteButtonVisibility();
+                BucketDgv.Rows.Clear();
+                countBucket = 0;
+                CountBucketLbl.Text = countBucket.ToString();
+
+
+                // Оповещаем пользователя о том, что заказ успешно сформирован
+                MessageBox.Show("Заказ успешно сформирован!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Корзина пуста. Нет товаров для формирования заказа.", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+    
+
     }
 }
+
