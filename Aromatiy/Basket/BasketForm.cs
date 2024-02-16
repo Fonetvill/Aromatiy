@@ -12,7 +12,7 @@ namespace Aromatiy.Basket
 {
     public partial class BasketForm : Form
     {
-        public BasketForm(int id)
+        public BasketForm()
         {
             InitializeComponent();
         }

@@ -12,19 +12,14 @@ using System.Windows.Forms;
 namespace Aromatiy
 {
     public partial class ProsmotrTovarov : Form
-    {
-        private int id;
-        private string allName;
-
+    {   
 
         int countBucket = 0;
         
 
-        public ProsmotrTovarov(int id, string allName)
+        public ProsmotrTovarov()
         {
             InitializeComponent();
-            this.id = id;
-            this.allName = allName;
         }
 
         private void orderBindingSource1BindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -43,10 +38,10 @@ namespace Aromatiy
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tovarDataSet.Order". При необходимости она может быть перемещена или удалена.
             this.orderTableAdapter1.Fill(this.tovarDataSet.Order);
 
-            if (allName != null)
+            if (  Variables.allName != null)
             {
                 panel5.Visible = true;
-                FIOLable.Text = allName;
+                FIOLable.Text = Variables.allName;
                 FIOLable.Visible = true;
             }
         }
@@ -70,20 +65,22 @@ namespace Aromatiy
 
         private void panel10_Click(object sender, EventArgs e)
         {
-            Basket.BasketForm basketForm = new Basket.BasketForm(id, selectProduct);
+            Basket.BasketForm basketForm = new Basket.BasketForm();
             basketForm.ShowDialog();
         }
 
         private void panel4_Click(object sender, EventArgs e)
         {
             Login login = new Login();
-            id = 0;
-            allName = null;
+            Variables.id = 0;
+            Variables.allName = null;
             this.Close();
             login.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+   
+
+        private void AddBtn_Click(object sender, EventArgs e)
         {
             if (productDataGridView.SelectedRows.Count > 0)
             {
@@ -100,13 +97,24 @@ namespace Aromatiy
                 {
                     countBucket++;
                     CountBucketLbl.Text = countBucket.ToString();
-                    selectProduct.Add(ProductID);
+
+                    foreach (DataGridViewRow row in productDataGridView.SelectedRows)
+                    {
+                        // Создаем новую строку во втором DataGridView
+                        int rowIndex = BucketDgv.Rows.Add();
+
+                        // Копируем данные из определенных колонок
+                        BucketDgv.Rows[rowIndex].Cells[0].Value = row.Cells["ProductID"].Value; // Копируем данные из колонки "Column1"
+                        BucketDgv.Rows[rowIndex].Cells[1].Value = row.Cells["ProductName"].Value; // Копируем данные из колонки "Column2"
+                        BucketDgv.Rows[rowIndex].Cells[2].Value = row.Cells["ProductCost"].Value; // Копируем данные из колонки "Column1"
+                        BucketDgv.Rows[rowIndex].Cells[3].Value = row.Cells["ProductDiscountAmount"].Value; // Копируем данные из колонки "Column2"
+                    }
                 }
             }
             else
             {
                 MessageBox.Show("Выберите строку .");
-               
+
             }
         }
     }
