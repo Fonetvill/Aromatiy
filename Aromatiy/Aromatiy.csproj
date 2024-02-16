@@ -72,6 +72,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TovarDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Variales.cs" />
     <EmbeddedResource Include="Basket\BasketForm.resx">
       <DependentUpon>BasketForm.cs</DependentUpon>
     </EmbeddedResource>

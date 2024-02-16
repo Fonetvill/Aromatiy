@@ -33,17 +33,25 @@
             this.productDataGridView = new System.Windows.Forms.DataGridView();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tovarDataSet = new Aromatiy.TovarDataSet();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.orderBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.CountBucketLbl = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.FIOLable = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.CloseBtn = new System.Windows.Forms.Button();
+            this.ExitLbl = new System.Windows.Forms.Label();
             this.orderTableAdapter1 = new Aromatiy.TovarDataSetTableAdapters.OrderTableAdapter();
             this.tableAdapterManager1 = new Aromatiy.TovarDataSetTableAdapters.TableAdapterManager();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.productTableAdapter = new Aromatiy.TovarDataSetTableAdapters.ProductTableAdapter();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tovarDataSet1 = new Aromatiy.TovarDataSet();
+            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,24 +63,20 @@
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.CountBucketLbl = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tovarDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource1)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel10.SuspendLayout();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tovarDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -102,7 +106,7 @@
             this.productDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.productDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn9,
+            this.ProductID,
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
@@ -119,8 +123,11 @@
             this.productDataGridView.GridColor = System.Drawing.Color.Black;
             this.productDataGridView.Location = new System.Drawing.Point(0, 0);
             this.productDataGridView.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.productDataGridView.MultiSelect = false;
             this.productDataGridView.Name = "productDataGridView";
+            this.productDataGridView.ReadOnly = true;
             this.productDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.productDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productDataGridView.Size = new System.Drawing.Size(1276, 289);
             this.productDataGridView.TabIndex = 0;
             // 
@@ -133,6 +140,15 @@
             // 
             this.tovarDataSet.DataSetName = "TovarDataSet";
             this.tovarDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel7.Location = new System.Drawing.Point(0, 289);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1276, 17);
+            this.panel7.TabIndex = 2;
             // 
             // orderBindingSource1
             // 
@@ -151,11 +167,44 @@
             this.panel2.Size = new System.Drawing.Size(1276, 56);
             this.panel2.TabIndex = 1;
             // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.CountBucketLbl);
+            this.panel10.Controls.Add(this.pictureBox1);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel10.Location = new System.Drawing.Point(935, 0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(79, 56);
+            this.panel10.TabIndex = 3;
+            this.panel10.Click += new System.EventHandler(this.panel10_Click);
+            // 
+            // CountBucketLbl
+            // 
+            this.CountBucketLbl.AutoSize = true;
+            this.CountBucketLbl.Location = new System.Drawing.Point(17, 22);
+            this.CountBucketLbl.Name = "CountBucketLbl";
+            this.CountBucketLbl.Size = new System.Drawing.Size(13, 13);
+            this.CountBucketLbl.TabIndex = 1;
+            this.CountBucketLbl.Text = "0";
+            this.CountBucketLbl.Click += new System.EventHandler(this.panel10_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ErrorImage = global::Aromatiy.Properties.Resources.shopping_cart_fill;
+            this.pictureBox1.Image = global::Aromatiy.Properties.Resources.shopping_cart_fill1;
+            this.pictureBox1.InitialImage = global::Aromatiy.Properties.Resources.shopping_cart_fill;
+            this.pictureBox1.Location = new System.Drawing.Point(36, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(26, 32);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.panel10_Click);
+            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.FIOLable);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel5.Location = new System.Drawing.Point(1008, 0);
+            this.panel5.Location = new System.Drawing.Point(1014, 0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(180, 56);
             this.panel5.TabIndex = 1;
@@ -174,29 +223,26 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.Transparent;
-            this.panel4.Controls.Add(this.CloseBtn);
+            this.panel4.BackColor = System.Drawing.Color.Red;
+            this.panel4.Controls.Add(this.ExitLbl);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(1188, 0);
+            this.panel4.Location = new System.Drawing.Point(1194, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(88, 56);
+            this.panel4.Size = new System.Drawing.Size(82, 56);
             this.panel4.TabIndex = 0;
+            this.panel4.Click += new System.EventHandler(this.panel4_Click);
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
-            // CloseBtn
+            // ExitLbl
             // 
-            this.CloseBtn.BackColor = System.Drawing.Color.Transparent;
-            this.CloseBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.CloseBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CloseBtn.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CloseBtn.Location = new System.Drawing.Point(0, 0);
-            this.CloseBtn.Name = "CloseBtn";
-            this.CloseBtn.Size = new System.Drawing.Size(88, 56);
-            this.CloseBtn.TabIndex = 0;
-            this.CloseBtn.Text = "Выйти";
-            this.CloseBtn.UseVisualStyleBackColor = false;
-            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
+            this.ExitLbl.AutoSize = true;
+            this.ExitLbl.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ExitLbl.Location = new System.Drawing.Point(11, 15);
+            this.ExitLbl.Name = "ExitLbl";
+            this.ExitLbl.Size = new System.Drawing.Size(59, 23);
+            this.ExitLbl.TabIndex = 0;
+            this.ExitLbl.Text = "Выход";
+            this.ExitLbl.Click += new System.EventHandler(this.panel4_Click);
             // 
             // orderTableAdapter1
             // 
@@ -226,92 +272,24 @@
             this.panel3.Size = new System.Drawing.Size(1276, 103);
             this.panel3.TabIndex = 2;
             // 
-            // productTableAdapter
+            // panel9
             // 
-            this.productTableAdapter.ClearBeforeFill = true;
+            this.panel9.BackColor = System.Drawing.Color.Aqua;
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(420, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(515, 103);
+            this.panel9.TabIndex = 3;
             // 
-            // dataGridViewTextBoxColumn9
+            // panel8
             // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "ProductID";
-            this.dataGridViewTextBoxColumn9.HeaderText = "ProductID";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "ProductArticleNumber";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Артикул";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "ProductName";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Название";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "UnitType";
-            this.dataGridViewTextBoxColumn12.HeaderText = "В чем изменяется";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "ProductCost";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Цена";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "ProductMaxDiscountAmount";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Максимальная скидка";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "ProductManufacturer";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Производитель";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "ProductSupplier";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Поставщик";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "ProductCategory";
-            this.dataGridViewTextBoxColumn17.HeaderText = "Категория товара";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "ProductDiscountAmount";
-            this.dataGridViewTextBoxColumn18.HeaderText = "Скидка на данный момент";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "ProductQuantityInStock";
-            this.dataGridViewTextBoxColumn19.HeaderText = "Остаток на складе";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "ProductDescription";
-            this.dataGridViewTextBoxColumn20.HeaderText = "Описание";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(0, 289);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1276, 17);
-            this.panel7.TabIndex = 2;
+            this.panel8.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.panel8.Controls.Add(this.button1);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel8.Location = new System.Drawing.Point(935, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(341, 103);
+            this.panel8.TabIndex = 1;
             // 
             // panel6
             // 
@@ -322,54 +300,110 @@
             this.panel6.Size = new System.Drawing.Size(420, 103);
             this.panel6.TabIndex = 0;
             // 
-            // panel8
+            // productTableAdapter
             // 
-            this.panel8.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel8.Location = new System.Drawing.Point(856, 0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(420, 103);
-            this.panel8.TabIndex = 1;
+            this.productTableAdapter.ClearBeforeFill = true;
             // 
-            // panel9
+            // tovarDataSet1
             // 
-            this.panel9.BackColor = System.Drawing.Color.Aqua;
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(420, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(436, 103);
-            this.panel9.TabIndex = 3;
+            this.tovarDataSet1.DataSetName = "TovarDataSet";
+            this.tovarDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // pictureBox1
+            // ProductID
             // 
-            this.pictureBox1.ErrorImage = global::Aromatiy.Properties.Resources.shopping_cart_fill;
-            this.pictureBox1.Image = global::Aromatiy.Properties.Resources.shopping_cart_fill1;
-            this.pictureBox1.InitialImage = global::Aromatiy.Properties.Resources.shopping_cart_fill;
-            this.pictureBox1.Location = new System.Drawing.Point(36, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(26, 32);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.ProductID.DataPropertyName = "ProductID";
+            this.ProductID.HeaderText = "ProductID";
+            this.ProductID.Name = "ProductID";
+            this.ProductID.ReadOnly = true;
+            this.ProductID.Visible = false;
             // 
-            // panel10
+            // dataGridViewTextBoxColumn10
             // 
-            this.panel10.Controls.Add(this.CountBucketLbl);
-            this.panel10.Controls.Add(this.pictureBox1);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel10.Location = new System.Drawing.Point(929, 0);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(79, 56);
-            this.panel10.TabIndex = 3;
-            this.panel10.Click += new System.EventHandler(this.panel10_Click);
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "ProductArticleNumber";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Артикул";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
             // 
-            // CountBucketLbl
+            // dataGridViewTextBoxColumn11
             // 
-            this.CountBucketLbl.AutoSize = true;
-            this.CountBucketLbl.Location = new System.Drawing.Point(17, 22);
-            this.CountBucketLbl.Name = "CountBucketLbl";
-            this.CountBucketLbl.Size = new System.Drawing.Size(13, 13);
-            this.CountBucketLbl.TabIndex = 1;
-            this.CountBucketLbl.Text = "0";
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "ProductName";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Название";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "UnitType";
+            this.dataGridViewTextBoxColumn12.HeaderText = "В чем изменяется";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "ProductCost";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Цена";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "ProductMaxDiscountAmount";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Максимальная скидка";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "ProductManufacturer";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Производитель";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "ProductSupplier";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Поставщик";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "ProductCategory";
+            this.dataGridViewTextBoxColumn17.HeaderText = "Категория товара";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "ProductDiscountAmount";
+            this.dataGridViewTextBoxColumn18.HeaderText = "Скидка на данный момент";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "ProductQuantityInStock";
+            this.dataGridViewTextBoxColumn19.HeaderText = "Остаток на складе";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "ProductDescription";
+            this.dataGridViewTextBoxColumn20.HeaderText = "Описание";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(341, 50);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Добавить в корзину";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ProsmotrTovarov
             // 
@@ -387,13 +421,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.tovarDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource1)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tovarDataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -434,10 +471,18 @@
         private TovarDataSetTableAdapters.ProductTableAdapter productTableAdapter;
         private System.Windows.Forms.DataGridView productDataGridView;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button CloseBtn;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label FIOLable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label CountBucketLbl;
+        private System.Windows.Forms.Label ExitLbl;
+        private TovarDataSet tovarDataSet1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
@@ -449,12 +494,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label CountBucketLbl;
+        private System.Windows.Forms.Button button1;
     }
 }

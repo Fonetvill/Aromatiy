@@ -15,8 +15,6 @@ namespace Aromatiy
 {
     public partial class Login : Form
     {
-        int id = 0;
-        string allName;
 
         public Login()
         {
@@ -28,7 +26,7 @@ namespace Aromatiy
         private void TobariButton_Click(object sender, EventArgs e)
         {
 
-            ProsmotrTovarov prosmotrTovarov = new ProsmotrTovarov(id,allName);
+            ProsmotrTovarov prosmotrTovarov = new ProsmotrTovarov();
             prosmotrTovarov.Show();
             this.Hide();
         }
@@ -49,13 +47,13 @@ namespace Aromatiy
                 if (reader.Read())
                 {
                     int? idValue = reader.IsDBNull(reader.GetOrdinal("UserId")) ? null : (int?)reader["UserId"];
-                    id = idValue.Value;
-                    allName = (string)reader["UserSurname"] + " " + (string)reader["UserName"] + " " + (string)reader["UserPatronymic"]; ;
+                    Variables.id = idValue.Value;
+                    Variables.allName = (string)reader["UserSurname"] + " " + (string)reader["UserName"] + " " + (string)reader["UserPatronymic"]; ;
 
                     reader.Close();
 
                     MessageBox.Show("Вы успешно вошли!", "Авторизация", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ProsmotrTovarov prosmotrTovarov = new ProsmotrTovarov(id,allName);
+                    ProsmotrTovarov prosmotrTovarov = new ProsmotrTovarov();
                     prosmotrTovarov.Show();
                     this.Hide();
                 }
