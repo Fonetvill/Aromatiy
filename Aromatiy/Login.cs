@@ -15,38 +15,47 @@ namespace Aromatiy
 {
     public partial class Login : Form
     {
+        int id = 0;
+        string allName;
+
         public Login()
         {
             InitializeComponent();
+           
+
         }
 
         private void TobariButton_Click(object sender, EventArgs e)
         {
-            ProsmotrTovarov prosmotrTovarov = new ProsmotrTovarov();
+
+            ProsmotrTovarov prosmotrTovarov = new ProsmotrTovarov(id,allName);
             prosmotrTovarov.Show();
             this.Hide();
         }
 
         private void EnableButton_Click(object sender, EventArgs e)
         {
-            string username = textBox1.Text;
+            string userlogin = textBox1.Text;
             string password = textBox2.Text;
             SqlConnection conn = new SqlConnection(Connection.con);
-            // Простая проверка учетных данных (замените на вашу логику проверки)
             try
             {
                 conn.Open();
                 string query = "SELECT * FROM [dbo].[User] WHERE [UserLogin]=@Username AND [UserPassword]=@Password";
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Username", username);
+                cmd.Parameters.AddWithValue("@Username", userlogin);
                 cmd.Parameters.AddWithValue("@Password", password);
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
+                    int? idValue = reader.IsDBNull(reader.GetOrdinal("UserId")) ? null : (int?)reader["UserId"];
+                    id = idValue.Value;
+                    allName = (string)reader["UserSurname"] + " " + (string)reader["UserName"] + " " + (string)reader["UserPatronymic"]; ;
+
                     reader.Close();
-                   
+
                     MessageBox.Show("Вы успешно вошли!", "Авторизация", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ProsmotrTovarov prosmotrTovarov = new ProsmotrTovarov();
+                    ProsmotrTovarov prosmotrTovarov = new ProsmotrTovarov(id,allName);
                     prosmotrTovarov.Show();
                     this.Hide();
                 }

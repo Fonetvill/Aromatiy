@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Basket\BasketForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Basket\BasketForm.Designer.cs">
+      <DependentUpon>BasketForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Connection.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -61,11 +67,14 @@
     <Compile Include="ProsmotrTovarov.Designer.cs">
       <DependentUpon>ProsmotrTovarov.cs</DependentUpon>
     </Compile>
-    <Compile Include="TradeDataSet.Designer.cs">
+    <Compile Include="TovarDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TradeDataSet.xsd</DependentUpon>
+      <DependentUpon>TovarDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Basket\BasketForm.resx">
+      <DependentUpon>BasketForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -77,6 +86,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="ProsmotrTovarov.resx">
       <DependentUpon>ProsmotrTovarov.cs</DependentUpon>
@@ -90,20 +100,26 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="TradeDataSet.xsc">
-      <DependentUpon>TradeDataSet.xsd</DependentUpon>
+    <None Include="TovarDataSet.xsc">
+      <DependentUpon>TovarDataSet.xsd</DependentUpon>
     </None>
-    <None Include="TradeDataSet.xsd">
+    <None Include="TovarDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>TradeDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>TovarDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="TradeDataSet.xss">
-      <DependentUpon>TradeDataSet.xsd</DependentUpon>
+    <None Include="TovarDataSet.xss">
+      <DependentUpon>TovarDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping-cart-fill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping-cart-fill1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

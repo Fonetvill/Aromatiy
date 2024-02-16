@@ -8,6 +8,6 @@ namespace Aromatiy
 {
     internal class Connection
     {
-        internal static string con = "Data Source=Fonet\\SQLEXPRESS;Initial Catalog = Trade; Integrated Security = True";
+        internal static string con = "Data Source=Fonet\\SQLEXPRESS;Initial Catalog = Tovar; Integrated Security = True";
     }
 }

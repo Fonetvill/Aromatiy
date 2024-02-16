@@ -33,5 +33,16 @@ namespace Aromatiy.Properties {
                 return ((string)(this["TradeConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=Fonet\\SQLEXPRESS;Initial Catalog=Tovar;Integrated Security=True;Trust" +
+            "ServerCertificate=True")]
+        public string TovarConnectionString {
+            get {
+                return ((string)(this["TovarConnectionString"]));
+            }
+        }
     }
 }
