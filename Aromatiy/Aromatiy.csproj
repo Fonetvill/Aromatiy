@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminManeger\Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminManeger\Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManeger\Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminManeger\Order.Designer.cs">
+      <DependentUpon>Order.cs</DependentUpon>
+    </Compile>
     <Compile Include="Connection.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -67,6 +79,12 @@
       <DependentUpon>TovarDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Variales.cs" />
+    <EmbeddedResource Include="AdminManeger\Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManeger\Order.resx">
+      <DependentUpon>Order.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

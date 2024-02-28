@@ -40,7 +40,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(265, 172);
+            this.textBox1.Location = new System.Drawing.Point(262, 170);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(277, 23);
             this.textBox1.TabIndex = 0;
@@ -48,7 +48,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.Location = new System.Drawing.Point(265, 232);
+            this.textBox2.Location = new System.Drawing.Point(262, 230);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(277, 23);
             this.textBox2.TabIndex = 1;
@@ -56,7 +56,7 @@
             // EnableButton
             // 
             this.EnableButton.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.EnableButton.Location = new System.Drawing.Point(340, 294);
+            this.EnableButton.Location = new System.Drawing.Point(337, 292);
             this.EnableButton.Name = "EnableButton";
             this.EnableButton.Size = new System.Drawing.Size(129, 28);
             this.EnableButton.TabIndex = 2;
@@ -67,7 +67,7 @@
             // TobariButton
             // 
             this.TobariButton.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TobariButton.Location = new System.Drawing.Point(338, 328);
+            this.TobariButton.Location = new System.Drawing.Point(335, 326);
             this.TobariButton.Name = "TobariButton";
             this.TobariButton.Size = new System.Drawing.Size(131, 28);
             this.TobariButton.TabIndex = 4;
@@ -79,7 +79,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(348, 96);
+            this.label1.Location = new System.Drawing.Point(345, 94);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 23);
             this.label1.TabIndex = 5;
@@ -89,7 +89,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(262, 146);
+            this.label2.Location = new System.Drawing.Point(259, 144);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 15);
             this.label2.TabIndex = 6;
@@ -99,7 +99,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(265, 213);
+            this.label3.Location = new System.Drawing.Point(262, 211);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 15);
             this.label3.TabIndex = 7;

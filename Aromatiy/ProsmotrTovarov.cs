@@ -335,6 +335,11 @@ namespace Aromatiy
                 productBindingSource.RemoveFilter();
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
