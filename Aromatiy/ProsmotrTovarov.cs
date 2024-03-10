@@ -83,7 +83,9 @@ namespace Aromatiy
             this.Close();
             login.Show();
         }
-
+        /// <summary>
+        /// Удаление datagrid корзины , еслит она пустая
+        /// </summary>
         private void UpdateDeleteButtonVisibility()
         {
             // Проверяем, есть ли строки в корзине
@@ -196,7 +198,10 @@ namespace Aromatiy
                 MessageBox.Show("Выберите строку для удаления");
             }
         }
-
+        /// <summary>
+        /// Генирация случайного кода для получения товара
+        /// </summary>
+        /// <returns></returns>
         private int GenerateOrderGetCode()
         {
             Random random = new Random();
@@ -240,11 +245,30 @@ namespace Aromatiy
                             command.Parameters.AddWithValue("@OrderDeliveryDate", orderDeliveryDate);
                             command.Parameters.AddWithValue("@IdPickupPoint", pickupPointId);
                             command.Parameters.AddWithValue("@OrderGetCode", orderGetCode);
+                            // Выполняем запрос
+                            command.ExecuteNonQuery();
+                        }
 
+                        string deleteProductQuery = @"INSERT INTO [Order] (OrderStatus, ProductArticleId, OrderCount, OrderCreateDate, OrderDeliveryDate, IdPickupPoint, OrderGetCode) 
+                                            VALUES (@OrderStatus, @ProductArticleId, @OrderCount, @OrderCreateDate, @OrderDeliveryDate, @IdPickupPoint, @OrderGetCode);";
+
+                        string deleteProductQuery = "DELETE FROM [Product] WHERE [BookingId] = @BookingId";
+
+                        using (SqlCommand command = new SqlCommand(deleteProductQuery, connection))
+                        {
+                            // Параметры запроса
+                            command.Parameters.AddWithValue("@OrderStatus", orderStatus);
+                            command.Parameters.AddWithValue("@ProductArticleId", productID);
+                            command.Parameters.AddWithValue("@OrderCount", quantity);
+                            command.Parameters.AddWithValue("@OrderCreateDate", orderCreateDate);
+                            command.Parameters.AddWithValue("@OrderDeliveryDate", orderDeliveryDate);
+                            command.Parameters.AddWithValue("@IdPickupPoint", pickupPointId);
+                            command.Parameters.AddWithValue("@OrderGetCode", orderGetCode);
                             // Выполняем запрос
                             command.ExecuteNonQuery();
                         }
                     }
+                    connection.Close();
                 }
 
                 // Очищаем корзину после создания заказа
